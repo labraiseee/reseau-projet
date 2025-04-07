@@ -1,17 +1,45 @@
 <!doctype html>
-<html lang ="fr" data-theme="corporate">
-<head >
-  <title>invincible CV</title>
+<html lang="fr" data-theme="corporate">
+<head>
+  <title>Invincible CV</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/output.css" rel="stylesheet">
 </head>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+
+<body>
+  <div class="navbar bg-base-100 shadow-sm">
+    <!-- Left button that links to local homepage -->
+    <div class="flex-none">
+      <a href="index.html" class="btn btn-square btn-ghost">
+        <img src="./static/immages/306-3069117_home-black-building-symbol-comments-home-tab-bar-icon.jpeg" alt="Accueil" class="h-6 w-6" />
+      </a>
+    </div>
+  
+    <!-- Center logo/text -->
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl flex items-center gap-2">
+        <img src="./static/immages/images.png" alt="Logo" class="h-5 w-100" />
+      </a>
+    </div>
+  
+    <!-- Right button with dropdown -->
+    <div class="flex-none dropdown dropdown-end">
+      <button tabindex="0" class="btn btn-square btn-ghost">
+        <img src="./static/immages/13128532.png" alt="Options" class="h-6 w-6" />
+      </button>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-4 z-10">
+        <li>
+          <a href="mailto:InvincibleLeGOAT@gmail.com">Me contacter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Barre de contact -->
   <header class="bg-white shadow-md p-6 flex items-center justify-between">
     <div class="flex items-center gap-4">
-      <img src="/static/immages/invincible.jpeg" class="w-24 h-24 rounded-full shadow-lg" />
+      <img src="./static/immages/invincible.jpeg" class="w-24 h-24 rounded-full shadow-lg" />
       <div>
         <h1 class="text-2xl font-bold">Invincible</h1>
         <p class="text-sm text-gray-600">Super hero/etudiant</p>
@@ -31,7 +59,7 @@
         Défenseur de la Terre à temps partiel, je jongle entre une vie étudiante et des responsabilités d’un autre monde. Discret, déterminé et rapide à réagir, je travaille dans l’ombre pour protéger ceux qui en ont besoin, tout en gardant une identité secrète. Ce n’est pas qu’un travail, c’est une mission.
       </p>
     </section>
-  
+
     <!-- Expérience professionnelle -->
     <section>
       <h2 class="text-xl font-semibold border-b-2 border-indigo-500 mb-2">Expérience professionnelle</h2>
@@ -55,7 +83,7 @@
         </div>
       </div>
     </section>
-  
+
     <!-- Éducation -->
     <section>
       <h2 class="text-xl font-semibold border-b-2 border-indigo-500 mb-2">Éducation</h2>
@@ -70,7 +98,7 @@
         </div>
       </div>
     </section>
-  
+
     <!-- Compétences -->
     <section>
       <h2 class="text-xl font-semibold border-b-2 border-indigo-500 mb-2">Compétences</h2>
@@ -82,12 +110,89 @@
         <li>Leadership et esprit d'équipe</li>
         <li>Capacité à garder un secret 🔒</li>
         <li>Super stylé</li>
-        <li>aptitude de survie hors de l'atmoshpère</li>
-        <li>modeste</li>
-        <li>vraiment super stylé</li>
+        <li>Aptitude de survie hors de l'atmoshpère</li>
+        <li>Modeste</li>
+        <li>Vraiment super stylé</li>
       </ul>
     </section>
   </main>
-  
 
+
+  <h1 id="Calculatrice" class="mt-5 mb-6 text-center text-4xl font-mono">Combien de personne j'ai sauvé</h1>
+  <div class="flex items-center justify-center">
+  <div class="card bg-base-100 shadow-xl p-6 w-full max-w-sm">
+    <div class="card-body">
+      <input id="display" type="text" class="input input-bordered w-full text-right mb-4" disabled />
+      <div class="grid grid-cols-4 gap-2">
+        <button class="btn" onclick="append('7')">7</button>
+        <button class="btn" onclick="append('8')">8</button>
+        <button class="btn" onclick="append('9')">9</button>
+        <button class="btn btn-error" onclick="clearDisplay()">C</button>
   
+        <button class="btn" onclick="append('4')">4</button>
+        <button class="btn" onclick="append('5')">5</button>
+        <button class="btn" onclick="append('6')">6</button>
+        <button class="btn" onclick="append('/')">/</button>
+  
+        <button class="btn" onclick="append('1')">1</button>
+        <button class="btn" onclick="append('2')">2</button>
+        <button class="btn" onclick="append('3')">3</button>
+        <button class="btn" onclick="append('*')">*</button>
+  
+        <button class="btn" onclick="append('0')">0</button>
+        <button class="btn" onclick="append('.')">.</button>
+        <button class="btn" onclick="append('+')">+</button>
+        <button class="btn" onclick="append('-')">-</button>
+  
+        <button class="btn btn-success col-span-4" onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="qcmContainer" class="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow">
+    <h2 class="text-2xl font-bold mb-4">QCM - Étape par étape</h2>
+  
+    <form id="qcmForm">
+      <!-- Question 1 -->
+      <div class="question step" data-step="1">
+        <p class="font-semibold">1. Quelle est la couleur du ciel ?</p>
+        <div class="form-control">
+          <label class="label cursor-pointer"><input type="radio" name="q1" value="a" class="radio" /> <span class="ml-2">Rouge</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q1" value="b" class="radio" /> <span class="ml-2">Bleu</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q1" value="c" class="radio" /> <span class="ml-2">Vert</span></label>
+        </div>
+      </div>
+  
+      <!-- Question 2 -->
+      <div class="question step hidden" data-step="2">
+        <p class="font-semibold">2. Combien de jours dans une semaine ?</p>
+        <div class="form-control">
+          <label class="label cursor-pointer"><input type="radio" name="q2" value="a" class="radio" /> <span class="ml-2">5</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q2" value="b" class="radio" /> <span class="ml-2">7</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q2" value="c" class="radio" /> <span class="ml-2">10</span></label>
+        </div>
+      </div>
+  
+      <!-- Question 3 -->
+      <div class="question step hidden" data-step="3">
+        <p class="font-semibold">3. Quel animal miaule ?</p>
+        <div class="form-control">
+          <label class="label cursor-pointer"><input type="radio" name="q3" value="a" class="radio" /> <span class="ml-2">Chien</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q3" value="b" class="radio" /> <span class="ml-2">Chat</span></label>
+          <label class="label cursor-pointer"><input type="radio" name="q3" value="c" class="radio" /> <span class="ml-2">Vache</span></label>
+        </div>
+      </div>
+    </form>
+  
+    <!-- Boutons -->
+    <div class="mt-6 flex justify-between">
+      <button id="prevBtn" class="btn btn-outline" disabled>Précédent</button>
+      <button id="nextBtn" class="btn btn-primary">Suivant</button>
+    </div>
+  
+    <!-- Résultat -->
+    <div id="resultat" class="mt-6 text-center font-bold text-lg hidden"></div>
+  </div>
+</body>
+<script src="./js/script.js" ></script>
+</html>
