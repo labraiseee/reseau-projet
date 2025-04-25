@@ -9,21 +9,18 @@
 
 <body>
   <div class="navbar bg-base-100 shadow-sm">
-    <!-- Left button that links to local homepage -->
     <div class="flex-none">
       <a href="index.html" class="btn btn-square btn-ghost">
         <img src="./static/immages/306-3069117_home-black-building-symbol-comments-home-tab-bar-icon.jpeg" alt="Accueil" class="h-6 w-6" />
       </a>
     </div>
   
-    <!-- Center logo/text -->
     <div class="flex-1">
       <a class="btn btn-ghost text-xl flex items-center gap-2">
         <img src="./static/immages/images.png" alt="Logo" class="h-5 w-100" />
       </a>
     </div>
   
-    <!-- Right button with dropdown -->
     <div class="flex-none dropdown dropdown-end">
       <button tabindex="0" class="btn btn-square btn-ghost">
         <img src="./static/immages/13128532.png" alt="Options" class="h-6 w-6" />
@@ -153,7 +150,7 @@
     <h2 class="text-2xl font-bold mb-4">QCM - Étape par étape</h2>
   
     <form id="qcmForm">
-      <!-- Question 1 -->
+      <!-- Questions -->
       <div class="question step" data-step="1">
         <p class="font-semibold">1. Quelle est la couleur du ciel ?</p>
         <div class="form-control">
@@ -163,7 +160,6 @@
         </div>
       </div>
   
-      <!-- Question 2 -->
       <div class="question step hidden" data-step="2">
         <p class="font-semibold">2. Combien de jours dans une semaine ?</p>
         <div class="form-control">
@@ -173,7 +169,6 @@
         </div>
       </div>
   
-      <!-- Question 3 -->
       <div class="question step hidden" data-step="3">
         <p class="font-semibold">3. Quel animal miaule ?</p>
         <div class="form-control">
@@ -190,8 +185,10 @@
       <button id="nextBtn" class="btn btn-primary">Suivant</button>
     </div>
   
-    <!-- Résultat -->
     <div id="resultat" class="mt-6 text-center font-bold text-lg hidden"></div>
+  </div>
+  <div class="mt-4 text-center">
+    <button id="bruteforceBtn" class="btn btn-warning">Bruteforce</button>
   </div>
 </body>
 <script src="./js/script.js" ></script>

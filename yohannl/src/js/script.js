@@ -15,6 +15,7 @@ function calculate() {
     display.value = "Erreur";
   }
 }
+
 const bonnesReponses = { q1: "b", q2: "b", q3: "b" };
 let currentStep = 1;
 const totalSteps = Object.keys(bonnesReponses).length;
@@ -35,7 +36,6 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     currentStep++;
     updateStep();
   } else {
-    // Validation
     let concat = "";
     let score = 0;
     for (let key in bonnesReponses) {
@@ -53,9 +53,14 @@ document.getElementById("nextBtn").addEventListener("click", () => {
     resDiv.classList.remove("hidden");
     resDiv.classList.add(score === totalSteps ? "text-green-600" : "text-red-500");
 
-    // Bloque navigation
     document.getElementById("nextBtn").disabled = true;
     document.getElementById("prevBtn").disabled = true;
+
+    if (score === totalSteps) {
+      setTimeout(() => {
+        window.location.href = "verite.html"; 
+      }, 1500);
+    }
   }
 });
 
@@ -67,3 +72,39 @@ document.getElementById("prevBtn").addEventListener("click", () => {
 });
 
 updateStep();
+
+document.getElementById("bruteforceBtn").addEventListener("click", () => {
+  const questions = Object.keys(bonnesReponses);
+  const choix = ['a', 'b', 'c'];
+
+  for (let i = 0; i < choix.length; i++) {
+    for (let j = 0; j < choix.length; j++) {
+      for (let k = 0; k < choix.length; k++) {
+        const tentative = [choix[i], choix[j], choix[k]];
+        let score = 0;
+
+        for (let idx = 0; idx < questions.length; idx++) {
+          if (tentative[idx] === bonnesReponses[questions[idx]]) {
+            score++;
+          }
+        }
+
+        if (score === questions.length) {
+          for (let idx = 0; idx < questions.length; idx++) {
+            const radio = document.querySelector(`input[name="${questions[idx]}"][value="${tentative[idx]}"]`);
+            if (radio) {
+              radio.checked = true;
+            }
+          }
+
+          currentStep = totalSteps;
+          updateStep();
+          document.getElementById("nextBtn").click();
+          return;
+        }
+      }
+    }
+  }
+
+  alert("Aucune combinaison correcte trouvée.");
+});
